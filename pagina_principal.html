@@ -282,8 +282,9 @@
 
     // Chamando a função para verificar o login assim que a página for carregada
     window.onload = verificarLogin;
-  </script>
-  // Função para verificar se o usuário está logado
+  
+ <script>
+    // Função para verificar se o usuário está logado
     function verificarLogin() {
       // Coloque aqui a lógica para verificar se o usuário está logado.
       // Se o usuário não estiver logado, redirecione-o para a página de login.
@@ -303,10 +304,10 @@
       window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "https://podtrader21.github.io/moneyIA/" pela URL da sua página de login.
     }
 
-    // Função para atualizar o contador regressivo
+    // Função para atualizar o contador regressivo e mostrar na página
     function atualizarContador(tempoRestante) {
       const contadorElement = document.getElementById("contador");
-      contadorElement.innerText = `${tempoRestante} segundos`;
+      contadorElement.innerText = `${Math.floor(tempoRestante / 60)}:${(tempoRestante % 60).toString().padStart(2, "0")}`;
 
       if (tempoRestante <= 0) {
         redirecionarParaLogin();
@@ -335,12 +336,8 @@
   </script>
 
   <!-- Restante do seu código... -->
-  <p>Tempo restante: <span id="contador">900 segundos</span></p>
+  <p>Tempo restante: <span id="contador">15:00</span></p>
 
   <!-- Restante do seu código... -->
-
-</body>
-</html>
-
 </body>
 </html> 
