@@ -268,6 +268,43 @@
 
   <!-- Resto do conteúdo... -->
 
+  <script>
+    // Função para verificar se o usuário está logado
+    function verificarLogin() {
+      // Coloque aqui a lógica para verificar se o usuário está logado.
+      // Se o usuário não estiver logado, redirecione-o para a página de login.
+      const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
+
+      if (!usuarioLogado) {
+        window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "https://podtrader21.github.io/moneyIA/" pela URL da sua página de login.
+      }
+    }
+
+    // Chamando a função para verificar o login assim que a página for carregada
+    window.onload = verificarLogin;
+  </script>
+<script>
+    // Função para verificar se o usuário está logado
+    function verificarLogin() {
+      // Coloque aqui a lógica para verificar se o usuário está logado.
+      // Se o usuário não estiver logado, redirecione-o para a página de login.
+      const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
+
+      if (!usuarioLogado) {
+        const contadorElement = document.getElementById('contador');
+        let tempoRestante = 60; // Tempo restante em segundos (1 minuto)
+
+        // Atualiza o contador a cada segundo
+        const contadorInterval = setInterval(() => {
+          tempoRestante--;
+          contadorElement.innerText = `Redirecionando para o login em ${tempoRestante} segundos...`;
+
+          if (tempoRestante <= 0) {
+            clearInterval(contadorInterval);
+            redirecionarParaLogin();
+          }
+        }, 1000); // Atualiza a cada 1000 milissegundos (1 segundo)
+      }
     }
 
     // Função para realizar o redirecionamento para a página de login
@@ -278,7 +315,9 @@
     // Verificar o login assim que a página for carregada
     window.onload = verificarLogin;
   </script>
-  </script>
+
+  <!-- Elemento para exibir o contador -->
+  <div id="contador"></div>
 
   <!-- Restante do seu código... -->
 
