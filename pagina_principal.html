@@ -255,13 +255,39 @@
     </a>
   </div>
   <p><a href="#topo">Voltar ao topo</a></p>
-
 <script>
-  // Redirecionar para a tela de login ao atualizar a página
-  window.onload = function() {
-    window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "URL_DA_TELA_DE_LOGIN" pela URL da tela de login
-  };
-    // Restante do código JavaScript...
+    // Função para redirecionar para a tela de login após 15 minutos de inatividade
+    function redirectToLogin() {
+      if (confirm("Sua sessão expirou. Você será redirecionado para a tela de login.")) {
+        window.location.href = "login.html"; // Substitua "login.html" pela URL da tela de login
+      }
+    }
+
+    // Definir o temporizador para chamar a função redirectToLogin após 15 minutos (em milissegundos)
+    const fifteenMinutes = 15 * 60 * 1000;
+    let timeoutId;
+
+    function resetTimer() {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(redirectToLogin, fifteenMinutes);
+    }
+
+    // Redirecionar para a tela de login quando a página for recarregada ou fechada
+    window.addEventListener("beforeunload", function (e) {
+      e.preventDefault();
+      e.returnValue = ""; // Necessário para a compatibilidade com alguns navegadores
+      redirectToLogin();
+    });
+
+    // Redefinir o temporizador quando houver qualquer interação do usuário na página
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keypress", resetTimer);
+    window.addEventListener("click", resetTimer);
+    window.addEventListener("scroll", resetTimer);
+    // Adicione outros eventos de interação do usuário, se necessário.
+
+    // Chamando a função showWelcomeMessage para exibir a mensagem
+    showWelcomeMessage();
   </script>
 </body>
 </html>
