@@ -283,33 +283,6 @@
     // Chamando a função para verificar o login assim que a página for carregada
     window.onload = verificarLogin;
   </script>
-   <script>
-    // Função para redirecionar o usuário para a página de login
-    function redirecionarParaLogin() {
-      window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua pela URL da sua página de login
-    }
-
-    // Função para verificar se o usuário está logado
-    function verificarLogin() {
-      const usuarioLogado = localStorage.getItem('usuarioLogado'); // Verifica se o usuário está logado
-
-      if (!usuarioLogado) {
-        redirecionarParaLogin(); // Redireciona para a página de login se o usuário não estiver logado
-      }
-    }
-
-    // Função para fazer o logout do usuário
-    function fazerLogout() {
-      localStorage.removeItem('usuarioLogado'); // Remove a informação de que o usuário está logado
-      redirecionarParaLogin(); // Redireciona para a página de login após o logout
-    }
-
-    // Chamando a função para verificar o login assim que a página for carregada
-    window.onload = verificarLogin;
-  </script>
-
-  <!-- Botão de logout -->
-  <button onclick="fazerLogout()">Logout</button>
 
 
 </body>
