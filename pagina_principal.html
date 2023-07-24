@@ -269,6 +269,19 @@
   <!-- Resto do conteúdo... -->
 
   <script>
+    <!DOCTYPE html>
+<html>
+<head>
+  <!-- Resto do cabeçalho... -->
+</head>
+<body>
+  <div class="welcome-message attention-message">
+    Seja bem-vindo à nova era da IA
+  </div>
+
+  <!-- Resto do conteúdo... -->
+
+  <script>
     // Função para verificar se o usuário está logado
     function verificarLogin() {
       // Coloque aqui a lógica para verificar se o usuário está logado.
@@ -276,12 +289,12 @@
       const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
 
       if (!usuarioLogado) {
-        window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "https://seusite.com/pagina-de-login" pela URL da sua página de login.
+        window.location.href = "https://seusite.com/pagina-de-login"; // Substitua "https://seusite.com/pagina-de-login" pela URL da sua página de login.
       }
     }
 
-    // Chamando a função para verificar o login antes de executar qualquer outra função
-    verificarLogin();
+    // Chamando a função para verificar o login assim que a página for carregada
+    window.onload = verificarLogin;
   </script>
 
   <!-- Restante do seu código... -->
@@ -289,6 +302,5 @@
 </body>
 </html>
 
-  </script>
 </body>
 </html> 
