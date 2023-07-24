@@ -301,12 +301,59 @@
 
     // Chamando a função para verificar o login assim que a página for carregada
     window.onload = verificarLogin;
+  </script>// Função para verificar se o usuário está logado
+    function verificarLogin() {
+      // Coloque aqui a lógica para verificar se o usuário está logado.
+      // Se o usuário não estiver logado, redirecione-o para a página de login.
+      const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
+
+      if (!usuarioLogado) {
+        redirecionarParaLogin();
+      } else {
+        // Se o usuário estiver logado, iniciar o contador regressivo
+        const tempoTotal = 900; // 900 segundos = 15 minutos
+        iniciarContador(tempoTotal);
+      }
+    }
+
+    // Função para realizar o redirecionamento para a página de login
+    function redirecionarParaLogin() {
+      window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "https://podtrader21.github.io/moneyIA/" pela URL da sua página de login.
+    }
+
+    // Função para atualizar o contador regressivo
+    function atualizarContador(tempoRestante) {
+      const contadorElement = document.getElementById("contador");
+      contadorElement.innerText = `${tempoRestante} segundos`;
+
+      if (tempoRestante <= 0) {
+        redirecionarParaLogin();
+      }
+    }
+
+    // Função para iniciar o contador regressivo
+    function iniciarContador(tempoTotal) {
+      let tempoRestante = tempoTotal;
+      atualizarContador(tempoRestante);
+
+      const contadorInterval = setInterval(() => {
+        tempoRestante -= 1;
+        atualizarContador(tempoRestante);
+      }, 1000); // Atualizar o contador a cada 1 segundo (1000 milissegundos)
+
+      // Se o usuário interagir com a página, o contador será reiniciado
+      document.addEventListener("mousemove", () => {
+        tempoRestante = tempoTotal;
+        atualizarContador(tempoRestante);
+      });
+    }
+
+    // Verificar o login assim que a página for carregada
+    window.onload = verificarLogin;
   </script>
 
   <!-- Restante do seu código... -->
-
-</body>
-</html>
+  <p>Tempo restante: <span id="contador">900 segundos</span></p>
 
 </body>
 </html> 
