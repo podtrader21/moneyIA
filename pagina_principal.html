@@ -256,36 +256,29 @@
   </div>
   <p><a href="#topo">Voltar ao topo</a></p>
  <script>
-    // Função para redirecionar para a tela de login
-    function redirectToLogin() {
-      window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "login.html" pela URL da tela de login
+<script>
+    // Função para verificar se o usuário está logado
+    function verificarLogin() {
+      // Coloque aqui a lógica para verificar se o usuário está logado.
+      // Se o usuário não estiver logado, redirecione-o para a página de login.
+      const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
+
+      if (!usuarioLogado) {
+        window.location.href = "https://seusite.com/pagina-de-login"; // Substitua "https://seusite.com/pagina-de-login" pela URL da sua página de login.
+      }
     }
 
-    // Definir o temporizador para chamar a função redirectToLogin após 15 minutos (em milissegundos)
-    const fifteenMinutes = 15 * 60 * 1000;
-    let timeoutId;
-
-    function resetTimer() {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(redirectToLogin, fifteenMinutes);
-    }
-
-    // Redirecionar para a tela de login quando a página for recarregada ou fechada
+    // Chamando a função para verificar o login antes de executar qualquer outra função
+    verificarLogin();
+     // Evento para redirecionar à página de login ao recarregar a página
     window.addEventListener("beforeunload", function (e) {
-      e.preventDefault();
-      e.returnValue = ""; // Necessário para a compatibilidade com alguns navegadores
-      redirectToLogin();
+      // Pode exibir uma mensagem de confirmação para o usuário antes de redirecionar, mas isso pode não funcionar em alguns navegadores modernos.
+      window.location.href = "https://podtrader21.github.io/moneyIA/l"; // Substitua "login.html" pela URL da tela de login
     });
-
-    // Redefinir o temporizador quando houver qualquer interação do usuário na página
-    window.addEventListener("mousemove", resetTimer);
-    window.addEventListener("keypress", resetTimer);
-    window.addEventListener("click", resetTimer);
-    window.addEventListener("scroll", resetTimer);
-    // Adicione outros eventos de interação do usuário, se necessário.
 
     // Chamando a função showWelcomeMessage para exibir a mensagem
     showWelcomeMessage();
+  </script>
   </script>
 </body>
 </html>
